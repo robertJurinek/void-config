@@ -22,7 +22,7 @@ print () {
 root_dataset=$(cat /tmp/root_dataset)
 
 # Set mirror and architecture
-REPO=https://alpha.de.repo.voidlinux.org/current
+REPO=https://repo-de.voidlinux.org/
 ARCH=x86_64
 
 # Copy keys
@@ -98,14 +98,14 @@ EOF
 
 # Prepare locales and keymap
 print 'Prepare locales and keymap'
-echo 'KEYMAP=fr' > /mnt/etc/vconsole.conf
-echo 'fr_FR.UTF-8 UTF-8' > /mnt/etc/default/libc-locales
-echo 'LANG="fr_FR.UTF-8"' > /mnt/etc/locale.conf
+echo 'KEYMAP=us' > /mnt/etc/vconsole.conf
+echo 'en_US.UTF-8 UTF-8' > /mnt/etc/default/libc-locales
+echo 'LANG="en_US.UTF-8"' > /mnt/etc/locale.conf
 
 # Configure system
 cat >> /mnt/etc/rc.conf << EOF
-KEYMAP="fr"
-TIMEZONE="Europe/Paris"
+KEYMAP="us"
+TIMEZONE="Europe/Bratislava"
 HARDWARECLOCK="UTC"
 EOF
 
@@ -206,7 +206,7 @@ EOF
 
 mkdir -p /mnt/etc/cmdline.d/
 cat > /mnt/etc/cmdline.d/keymap.conf <<EOF
-rd.vconsole.keymap=fr
+rd.vconsole.keymap=us
 EOF
 
 # Set cmdline
@@ -217,7 +217,7 @@ print 'Generate zbm'
 chroot /mnt/ /bin/bash -e <<"EOF"
 
   # Export locale
-  export LANG="fr_FR.UTF-8"
+  export LANG="en_US.UTF-8"
 
   # Generate initramfs, zfsbootmenu
   xbps-reconfigure -fa
