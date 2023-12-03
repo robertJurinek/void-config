@@ -234,7 +234,7 @@ chroot /mnt/ /bin/bash -e <<"EOF"
   # Export locale
   export LANG="en_US.UTF-8"
   # Generate initramfs, zfsbootmenu for disk2
-  xbps-reconfigure -fa -c /etc/zfsbootmenu/config_disk2.yaml
+  xbps-reconfigure -fa -C /etc/zfsbootmenu/config_disk2.yaml
 EOF
 
 # Set DISKS
