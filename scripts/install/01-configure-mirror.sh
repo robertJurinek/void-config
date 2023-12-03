@@ -143,7 +143,7 @@ create_system_dataset () {
     zfs mount zroot/ROOT/"$1"
 
     # Create XBPS cache dataset under var
-    zfs create -o compression=off zroot/ROOT/"$1"/var/cache/xbps
+    #zfs create -o compression=off zroot/ROOT/"$1"/var/cache/xbps
 }
 
 create_home_dataset () {
@@ -173,8 +173,8 @@ mount_system () {
     print "Mount EFI parts"
     EFI1="$DISK1-part1"
     EFI2="$DISK2-part1"
-    mkdir -p /mnt/efi
-    mount "$EFI1" /mnt/efi
+    mkdir -p /mnt/efi1
+    mount "$EFI1" /mnt/efi1
     mkdir -p /mnt/efi2
     mount "$EFI2" /mnt/efi2
 }

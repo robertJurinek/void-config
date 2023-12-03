@@ -62,7 +62,7 @@ packages=(
   dhclient
   openresolv # dns
   git
-  ansible
+  xorg 
 )
 
 XBPS_ARCH=$ARCH xbps-install -y -S -r /mnt -R "$REPO" "${packages[@]}"
